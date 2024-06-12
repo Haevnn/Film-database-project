@@ -1,0 +1,31 @@
+{% include "../head.html" %}
+<div class="container">
+    <span class="mb-4">&nbsp;</span>
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="username" name="username" id="username" class="form-control" />
+      <label class="form-label" for="username">Username</label>
+    </div>
+  
+    <!-- Password input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="password" name="password" id="password" class="form-control" />
+      <label class="form-label" for="password">Password</label>
+    </div>
+
+    {% if error %}
+        <p><center>{{ error }}</center></p>
+    {% endif %}
+
+    <!-- Submit button -->
+    <input  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" value="Sign in" />
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="{% url 'registerPage' %}">Register</a></p>
+    </div>
+  </form>
+</div>
+{% include "../foot.html" %}

@@ -1,0 +1,20 @@
+{% include "../head.html" %}
+
+<div class="container">
+    <span class="mb-4">&nbsp;</span>
+    {% if movie_list %}
+        <div class="row">
+            {% for movie in movie_list %}
+                <div class="col-sm-4" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('{{ movie.movie_image_url }}');background-position: center;background-repeat: no-repeat;background-size: cover; padding-top: 50; padding-bottom: 50;">
+                    <div class="text-center">
+                        <a href="{% url 'detail' movie.id %}"  style="color: #ffffff">{{ movie.movie_name }} ({{ movie.movie_pub_date }})</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No Movies are available.</p>
+{% endif %}
+</div>
+
+{% include "../foot.html" %}
